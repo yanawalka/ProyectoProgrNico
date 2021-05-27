@@ -41,12 +41,15 @@ $(document).on("click", ".btnEditar", function(){
     fila = $(this).closest("tr");
     id = parseInt(fila.find('td:eq(0)').text());
     nombre = fila.find('td:eq(1)').text();
-    pais = fila.find('td:eq(2)').text();
-    edad = parseInt(fila.find('td:eq(3)').text());
+    usuario = fila.find('td:eq(2)').text();
+    email = fila.find('td:eq(3)').text();
+    clave = fila.find('td:eq(4)').text();
+
     
     $("#nombre").val(nombre);
-    $("#pais").val(pais);
-    $("#edad").val(edad);
+    $("#usuario").val(usuario);
+    $("#email").val(email);
+    $("#clave").val(clave);
     opcion = 2; //editar
     
     $(".modal-header").css("background-color", "#007bff");
@@ -81,21 +84,23 @@ $(document).on("click", ".btnBorrar", function(){
 $("#formPersonas").submit(function(e){
     e.preventDefault();    
     nombre = $.trim($("#nombre").val());
-    pais = $.trim($("#pais").val());
-    edad = $.trim($("#edad").val());    
+    usuario = $.trim($("#usuario").val());
+    email = $.trim($("#email").val()); 
+    clave = $.trim($("#clave").val()); 
     $.ajax({
         url: "bd/crud.php",
         type: "POST",
         dataType: "json",
-        data: {nombre:nombre, pais:pais, edad:edad, id:id, opcion:opcion},
+        data: {nombre:nombre, usuario:usuario, email:email, clave:clave, id:id, opcion:opcion},
         success: function(data){  
             console.log(data);
             id = data[0].id;            
             nombre = data[0].nombre;
-            pais = data[0].pais;
-            edad = data[0].edad;
-            if(opcion == 1){tablaPersonas.row.add([id,nombre,pais,edad]).draw();}
-            else{tablaPersonas.row(fila).data([id,nombre,pais,edad]).draw();}            
+            usuario = data[0].usuario;
+            email = data[0].email;
+            clave = data[0].clave;
+            if(opcion == 1){tablaPersonas.row.add([id,nombre,usuario,email,clave]).draw();}
+            else{tablaPersonas.row(fila).data([id,nombre,usuario,email,clave]).draw();}            
         }        
     });
     $("#modalCRUD").modal("hide");    

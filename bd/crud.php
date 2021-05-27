@@ -6,28 +6,29 @@ $conexion = $objeto->Conectar();
 // Recepción de los datos enviados mediante POST desde el JS   
 
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
-$pais = (isset($_POST['pais'])) ? $_POST['pais'] : '';
-$edad = (isset($_POST['edad'])) ? $_POST['edad'] : '';
+$usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
+$email = (isset($_POST['email'])) ? $_POST['email'] : '';
+$clave = (isset($_POST['clave'])) ? $_POST['clave'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcion){
     case 1: //alta
-        $consulta = "INSERT INTO personas (nombre, pais, edad) VALUES('$nombre', '$pais', '$edad') ";			
+        $consulta = "INSERT INTO personas (nombre, usuario, email, clave) VALUES('$nombre', '$usuario', '$email', '$clave') ";			
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
 
-        $consulta = "SELECT id, nombre, pais, edad FROM personas ORDER BY id DESC LIMIT 1";
+        $consulta = "SELECT id, nombre, usuario, email, clave FROM personas ORDER BY id DESC LIMIT 1";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 2: //modificación
-        $consulta = "UPDATE personas SET nombre='$nombre', pais='$pais', edad='$edad' WHERE id='$id' ";		
+        $consulta = "UPDATE personas SET nombre='$nombre', usuario='$usuario', email='$email', clave='$clave' WHERE id='$id' ";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         
-        $consulta = "SELECT id, nombre, pais, edad FROM personas WHERE id='$id' ";       
+        $consulta = "SELECT id, nombre, usuario, email, clave FROM personas WHERE id='$id' ";       
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);

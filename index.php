@@ -3,7 +3,7 @@ include_once 'bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT id, nombre, pais, edad FROM personas";
+$consulta = "SELECT id, nombre, usuario, email, clave FROM personas";
 $resultado = $conexion->prepare($consulta);
 $resultado -> execute();
 $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -56,8 +56,9 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>País</th>                                
-                                <th>Edad</th>  
+                                <th>Usuario</th>                                
+                                <th>Email</th> 
+                                <th>Clave</th>  
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -68,8 +69,9 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td><?php echo $dat['id'] ?></td>
                                 <td><?php echo $dat['nombre'] ?></td>
-                                <td><?php echo $dat['pais'] ?></td>
-                                <td><?php echo $dat['edad'] ?></td>    
+                                <td><?php echo $dat['usuario'] ?></td>
+                                <td><?php echo $dat['email'] ?></td>
+                                <td><?php echo $dat['clave'] ?></td>    
                                 <td></td>
                             </tr>
                             <?php
@@ -98,13 +100,18 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                 <input type="text" class="form-control" id="nombre">
                 </div>
                 <div class="form-group">
-                <label for="pais" class="col-form-label">País:</label>
-                <input type="text" class="form-control" id="pais">
-                </div>                
+                <label for="usuario" class="col-form-label">Usuario:</label>
+                <input type="text" class="form-control" id="usuario">
+                </div> 
                 <div class="form-group">
-                <label for="edad" class="col-form-label">Edad:</label>
-                <input type="number" class="form-control" id="edad">
-                </div>            
+                <label for="email" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" id="email">
+                </div> 
+                <div class="form-group">
+                <label for="clave" class="col-form-label">Clave:</label>
+                <input type="text" class="form-control" id="clave">
+                </div>                
+          
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
