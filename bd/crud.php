@@ -9,6 +9,7 @@ $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $email = (isset($_POST['email'])) ? $_POST['email'] : '';
 $clave = (isset($_POST['clave'])) ? $_POST['clave'] : '';
+
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
@@ -38,6 +39,13 @@ switch($opcion){
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                           
         break;        
+
+    case 4:    
+        $consulta = "SELECT * FROM personas";
+        $resultado = $conexion->prepare($consulta);
+        $resultado->execute();        
+        $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+        break;
 }
 
 print json_encode($data, JSON_UNESCAPED_UNICODE); //enviar el array final en formato json a JS
