@@ -6,42 +6,43 @@ $conexion = $objeto->Conectar();
 // Recepción de los datos enviados mediante POST desde el JS   
 
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
-$usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
+$telefono = (isset($_POST['telefono'])) ? $_POST['telefono'] : '';
 $email = (isset($_POST['email'])) ? $_POST['email'] : '';
-$clave = (isset($_POST['clave'])) ? $_POST['clave'] : '';
+$direccion = (isset($_POST['direccion'])) ? $_POST['direccion'] : '';
+$pagina = (isset($_POST['pagina'])) ? $_POST['pagina'] : '';
 
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcion){
     case 1: //alta
-        $consulta = "INSERT INTO personas (nombre, usuario, email, clave) VALUES('$nombre', '$usuario', '$email', '$clave') ";			
+        $consulta = "INSERT INTO proveedores (nombre, telefono, email, direccion, pagina) VALUES('$nombre', '$telefono', '$email', '$direccion', '$pagina') ";			
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
 
-        $consulta = "SELECT id, nombre, usuario, email, clave FROM personas ORDER BY id DESC LIMIT 1";
+        $consulta = "SELECT id, nombre, telefono, email, direccion, pagina FROM proveedores ORDER BY id DESC LIMIT 1";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 2: //modificación
-        $consulta = "UPDATE personas SET nombre='$nombre', usuario='$usuario', email='$email', clave='$clave' WHERE id='$id' ";		
+        $consulta = "UPDATE proveedores SET nombre='$nombre', telefono='$telefono', email='$email', direccion='$direccion' WHERE id='$id' ";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         
-        $consulta = "SELECT id, nombre, usuario, email, clave FROM personas WHERE id='$id' ";       
+        $consulta = "SELECT id, nombre, telefono, email, direccion FROM proveedores WHERE id='$id' ";       
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;        
     case 3://baja
-        $consulta = "DELETE FROM personas WHERE id='$id' ";		
+        $consulta = "DELETE FROM proveedores WHERE id='$id' ";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                           
         break;        
 
     case 4:    
-        $consulta = "SELECT * FROM personas";
+        $consulta = "SELECT * FROM proveedores";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
