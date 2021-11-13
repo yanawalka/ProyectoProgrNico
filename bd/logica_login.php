@@ -10,7 +10,6 @@ $conexion = $objeto->Conectar();
 //COMPROBAR CONEXION
 // print_r($conexion);
 
-
 // Recepción de los datos enviados mediante POST desde el JS   
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $clave = (isset($_POST['clave'])) ? $_POST['clave'] : '';

@@ -1,5 +1,7 @@
 $(document).ready(function () {
   var id, opcion;
+ 
+  //MOstrar
   opcion = 4;
   tablaMarcas = $("#tablaMarcas").DataTable({
     "ajax":{            
@@ -25,6 +27,7 @@ $(document).ready(function () {
     fila = $(this).closest("tr");
     id = parseInt(fila.find("td:eq(0)").text());
     nombre = fila.find("td:eq(1)").text();
+    
     $("#nombre").val(nombre);
 
 
@@ -54,9 +57,24 @@ $(document).ready(function () {
     }
   });
 
+  //AGREGAR
+
+  $("#btnNuevo").click(function () {
+    $("#formMarcas").trigger("reset");
+    $(".modal-header").css("background-color", "#28a745");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").text("Nueva marca");
+    $("#modalCRUD").modal("show");
+    id = null;
+    opcion = 1; //alta
+  });
+
+  //Boton Guardar
   $("#formMarcas").submit(function (e) {
     e.preventDefault();
+
     nombre = $.trim($('#nombre').val());
+    
     $.ajax({
       url: "../../bd/crudMarcas.php",
       type: "POST",
@@ -74,14 +92,5 @@ $(document).ready(function () {
   });
 
 
-  //AGREGAR
-  $("#btnNuevo").click(function () {
-    $("#formMarcas").trigger("reset");
-    $(".modal-header").css("background-color", "#28a745");
-    $(".modal-header").css("color", "white");
-    $(".modal-title").text("Nueva marca");
-    $("#modalCRUD").modal("show");
-    id = null;
-    opcion = 1; //alta
-  });
+
 });

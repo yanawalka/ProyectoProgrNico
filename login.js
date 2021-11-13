@@ -30,7 +30,6 @@ $('#formLogin').submit(function(e){
               }else{           
 
                   Swal.fire({
-                    
                       type: 'success',                          
                       title: '¡Conexión exitosa!',                                                
                       confirmButtonColor: '#3085d6',                          

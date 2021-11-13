@@ -47,58 +47,58 @@ $(document).ready(function () {
 
   //BORRAR
   //Borrar
-  $(document).on("click", ".btnBorrar", function () {
-    opcion = 3; //eliminar
-    fila = $(this);
-    id = parseInt($(this).closest("tr").find("td:eq(0)").text());
-    var respuesta = confirm("¿Está seguro de borrar el registro " + id + "?");
-    if (respuesta) {
-      $.ajax({
-        url: "../../bd/crudProductos.php",
-        type: "POST",
-        datatype: "json",
-        data: { opcion: opcion, id: id },
-        success: function () {
-          tablaPersonas.row(fila.parents("tr")).remove().draw();
-        },
-      });
-    }
-  });
+  // $(document).on("click", ".btnBorrar", function () {
+  //   opcion = 3; //eliminar
+  //   fila = $(this);
+  //   id = parseInt($(this).closest("tr").find("td:eq(0)").text());
+  //   var respuesta = confirm("¿Está seguro de borrar el registro " + id + "?");
+  //   if (respuesta) {
+  //     $.ajax({
+  //       url: "../../bd/crudProductos.php",
+  //       type: "POST",
+  //       datatype: "json",
+  //       data: { opcion: opcion, id: id },
+  //       success: function () {
+  //         tablaPersonas.row(fila.parents("tr")).remove().draw();
+  //       },
+  //     });
+  //   }
+  // });
 
-  $("#formPersonas").submit(function (e) {
-    e.preventDefault();
-    codigo = $.trim($('#codigo').val());
-    nombre = $.trim($('#nombre').val());
-    idMarca = $.trim($('#idMarca').val());
-    precio = $.trim($('#precio').val());
-    $.ajax({
-      url: "../../bd/crudProductos.php",
-      type: "POST",
-      dataType: "json",
-      data: {
-        codigo: codigo,
-        nombre: nombre,
-        idMarca: idMarca,
-        precio: precio,
-        id: id,
-        opcion: opcion,
-      },
-      success: function (data) {
-        tablaPersonas.ajax.reload(null, false);
-      },
-    });
-    $("#modalCRUD").modal("hide");
-  });
+  // $("#formPersonas").submit(function (e) {
+  //   e.preventDefault();
+  //   codigo = $.trim($('#codigo').val());
+  //   nombre = $.trim($('#nombre').val());
+  //   idMarca = $.trim($('#idMarca').val());
+  //   precio = $.trim($('#precio').val());
+  //   $.ajax({
+  //     url: "../../bd/crudProductos.php",
+  //     type: "POST",
+  //     dataType: "json",
+  //     data: {
+  //       codigo: codigo,
+  //       nombre: nombre,
+  //       idMarca: idMarca,
+  //       precio: precio,
+  //       id: id,
+  //       opcion: opcion,
+  //     },
+  //     success: function (data) {
+  //       tablaPersonas.ajax.reload(null, false);
+  //     },
+  //   });
+  //   $("#modalCRUD").modal("hide");
+  // });
 
 
   //AGREGAR
-  $("#btnNuevo").click(function () {
-    $("#formPersonas").trigger("reset");
-    $(".modal-header").css("background-color", "#28a745");
-    $(".modal-header").css("color", "white");
-    $(".modal-title").text("Nuevo producto");
-    $("#modalCRUD").modal("show");
-    id = null;
-    opcion = 1; //alta
-  });
+  // $("#btnNuevo").click(function () {
+  //   $("#formPersonas").trigger("reset");
+  //   $(".modal-header").css("background-color", "#28a745");
+  //   $(".modal-header").css("color", "white");
+  //   $(".modal-title").text("Nuevo producto");
+  //   $("#modalCRUD").modal("show");
+  //   id = null;
+  //   opcion = 1; //alta
+  // });
 });

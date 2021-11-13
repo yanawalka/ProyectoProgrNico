@@ -1,3 +1,4 @@
+//Mostrar
 $(document).ready(function () {
   var id, opcion;
   opcion = 4;
@@ -8,6 +9,7 @@ $(document).ready(function () {
       "data":{opcion:opcion}, //enviamos opcion 4 para que haga un SELECT
       "dataSrc":""
   },
+
   "columns":[
       {"data": "id"},
       {"data": "nombre"},
@@ -15,10 +17,30 @@ $(document).ready(function () {
       {"data": "email"},
       {"data": "clave"},
       {"data": "descripcion"},
-      //  {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='material-icons'>delete</i></button></div></div>"}
       {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='material-icons'>delete</i></button></div></div>"},
-  ]
-
+  ],
+  responsive: "true",
+  dom: 'Bfrtilp',       
+  buttons:[ 
+  {
+    extend:    'excelHtml5',
+    text:      'EXCEL',
+    titleAttr: 'Exportar a Excel',
+    className: 'btn btn-success',
+    exportOptions: {
+      columns: [ 0, 1, 2, 3,4]
+  },
+  },
+  {
+    extend:    'pdfHtml5',
+    text:      'PDF',
+    titleAttr: 'Exportar a PDF',
+    className: 'btn btn-danger',
+    exportOptions: {
+      columns: [ 0, 1, 2, 3,4]
+  },
+  },
+],
   });
 // console.log(tablaPersonas);
 
@@ -33,13 +55,14 @@ $(document).ready(function () {
     usuario = fila.find("td:eq(2)").text();
     email = fila.find("td:eq(3)").text();
     clave = fila.find("td:eq(4)").text();
-    idRol = fila.find("td:eq(5)").text();
+    descripcion = fila.find("td:eq(5)").text();
+
 
     $("#nombre").val(nombre);
     $("#usuario").val(usuario);
     $("#email").val(email);
     $("#clave").val(clave);
-    $("#idRol").val(idRol);
+    $("#descripcion").val(descripcion);
 
 
     $(".modal-header").css("background-color", "#007bff");
@@ -67,7 +90,7 @@ $(document).ready(function () {
       });
     }
   });
-  //AGREGAR
+  //Submit
   $("#formPersonas").submit(function (e) {
     e.preventDefault();
     nombre = $.trim($('#nombre').val());
@@ -95,8 +118,8 @@ $(document).ready(function () {
     $("#modalCRUD").modal("hide");
   });
 
-  $(document).on("click", ".btnNuevo", function () {
-  // $("#btnNuevo").click(function () {
+
+  $("#btnNuevo").click(function () {
     $("#formPersonas").trigger("reset");
     $(".modal-header").css("background-color", "#28a745");
     $(".modal-header").css("color", "white");
@@ -105,4 +128,13 @@ $(document).ready(function () {
     id = null;
     opcion = 1; //alta
   });
+
+//   $(document).ready(function() {
+//     $('#tablaPersonas').DataTable( {
+//         dom: 'Bfrtip',
+//         buttons: [
+//             'copy', 'csv', 'excel', 'pdf', 'print'
+//         ]
+//     } );
+// } );
 });

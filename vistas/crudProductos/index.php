@@ -94,7 +94,10 @@
         </form>    
         </div>
     </div>
-</div>  
+
+</div>
+<form  action="../../bd/productoCompleto.php"><input type="submit" class="btn btn-warning" name="nPdf" value="PDF"></form>
+
       
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="../../jquery/jquery-3.3.1.min.js"></script>

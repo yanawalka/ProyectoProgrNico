@@ -34,8 +34,7 @@ if ($_SESSION["s_usuario"] === null){
 </head>
 
 <body>
-
-
+    
     <nav class="menum navbar navbar-light navbar-expand-md justify-content-center fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
@@ -51,9 +50,6 @@ if ($_SESSION["s_usuario"] === null){
             </div>
         </div>
     </nav>
-
-
-
 
 <div>
 <!-- <h1 class="text-center">

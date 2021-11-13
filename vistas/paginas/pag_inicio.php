@@ -3,7 +3,7 @@ session_start();
 
 //Si nadie inció sesión vuelve a la pag de Login
 if ($_SESSION["s_usuario"] === null){
-	header("Location: ../index.php");
+	header("Location: ../../index.php");
 }else{
     if($_SESSION["s_idRol"]==3){
         header("Location: pag_inicioUsuario.php");
