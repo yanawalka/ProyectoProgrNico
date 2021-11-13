@@ -49,7 +49,7 @@ $conexion = $objeto->Conectar();
 <body>
 
     <header>
-        <div class="grid">
+        <!-- <div class="grid">
             <div class="element1 align-middle">
                 <div class="contenedor1 ">
                     <h3 class=" nomcrud text-center text-light  ">USUARIOS</h3>
@@ -63,11 +63,12 @@ $conexion = $objeto->Conectar();
                             <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
                                 id="collapsingNavbar2">
                                 <ul class="topBotomBordersOut navbar-nav mx-auto text-center">
-                                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../paginas/pagina_inico.php">MENU PRINCIPAL</a></li>
+                                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../paginas/pag_inicio.php">MENU PRINCIPAL</a></li>
                                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudProductos">PRODUCTOS</a></li>
-                                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudMarcas">MARCAS</a></li>
+                                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudMarcas">CATEGORIAS</a></li>
                                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudProveedores">PROVEEDORES</a></li>
                                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudRoles">ROLES</a></li>
+                                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudVentas/indexventascarrito.php">VENTAS</a></li>
                                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../../bd/logica_logout.php">CERRAR SESION</a></li>
                                 </ul>
                             </div>
@@ -83,8 +84,11 @@ $conexion = $objeto->Conectar();
             </div>
             
         </div>
-
-
+ -->
+ <header>
+<!--         <h3 class="text-center text-light">Tutorial</h3>-->
+         <h4 class="text-center text-light">CRUD <span class="badge badge-warning">USUARIOS</span></h4> 
+     </header> 
 
 
     </header>
@@ -92,8 +96,8 @@ $conexion = $objeto->Conectar();
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <button id='btnNuevo' type='button' class='btn btn-success btnNuevo ' data-toggle='modal'>
-                    Nueva Entrada
+                <button id='btnNuevo' type='button' class='btn btn-info btnNuevo ' data-toggle='modal'>
+                    Nuevo
                 </button>
             </div>
         </div>

@@ -48,7 +48,7 @@
                                 <th >Id</th>
                                 <th>Codigo</th>
                                 <th>Nombre</th>    
-                                <th>idMarca</th>                                
+                                <th>Categorias</th>                                
                                 <th>Precio</th> 
                                 <th>Acciones</th>
                             </tr>
@@ -79,7 +79,7 @@
                 <input type="text" class="form-control" id="nombre">
                 </div> 
                 <div class="form-group">
-                <label for="idMarca" class="col-form-label">idMarca:</label>
+                <label for="idMarca" class="col-form-label">Categorias:</label>
                 <input type="text" class="form-control" id="idMarca">
                 </div> 
                 <div class="form-group">

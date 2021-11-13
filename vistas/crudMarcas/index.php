@@ -27,7 +27,7 @@
 
 <header>
 <!--         <h3 class="text-center text-light">Tutorial</h3>-->
-         <h4 class="text-center text-light">CRUD <span class="badge badge-warning">MARCAS</span></h4> 
+         <h4 class="text-center text-light">CRUD <span class="badge badge-warning">CATEGORIAS</span></h4> 
      </header>    
       
     <div class="container">

@@ -10,9 +10,31 @@ $(document).ready(function () {
       "data":{opcion:opcion}, //enviamos opcion 4 para que haga un SELECT
       "dataSrc":""
   },
+  responsive: "true",
+  dom: 'Bfrtilp',       
+  buttons:[ 
+  {
+    extend:    'excelHtml5',
+    text:      'EXCEL',
+    titleAttr: 'Exportar a Excel',
+    className: 'btn btn-success',
+    exportOptions: {
+      columns: [ 0, 1,]
+  },
+  },
+  {
+    extend:    'pdfHtml5',
+    text:      'PDF',
+    titleAttr: 'Exportar a PDF',
+    className: 'btn btn-danger',
+    exportOptions: {
+      columns: [ 0, 1,]
+  },
+  },
+],
   "columns":[
-      {"data": "id"},
-      {"data": "nombre"},
+      {"data": "caid"},
+      {"data": "canom"},
       {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>edit</i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='material-icons'>delete</i></button></div></div>"}
   ]
 

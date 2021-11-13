@@ -26,7 +26,7 @@
                         <a class="nav-link" href="indexPrincipal.php">INICIO</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="usuarios\index.php">USUARIOS</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="marca\index.php">MARCAS</a>
+                    <li class="nav-item"> <a class="nav-link" href="marca\index.php">CATEGORIAS</a>
                     <li class="nav-item"> <a class="nav-link" href="proveedores\index.php">PROVEEDORES</a>
                     <li class="nav-item"> <a class="nav-link" href="articulos\index.php">ARTICULOS</a>
                     <li class="nav-item"> <a class="nav-link" href="clientes\index.php">CLIENTES</a>

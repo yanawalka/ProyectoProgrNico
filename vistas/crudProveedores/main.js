@@ -9,6 +9,28 @@ $(document).ready(function () {
       "data":{opcion:opcion}, //enviamos opcion 4 para que haga un SELECT
       "dataSrc":""
   },
+  responsive: "true",
+  dom: 'Bfrtilp',       
+  buttons:[ 
+  {
+    extend:    'excelHtml5',
+    text:      'EXCEL',
+    titleAttr: 'Exportar a Excel',
+    className: 'btn btn-success',
+    exportOptions: {
+      columns: [ 0, 1, 2, 3,4,5]
+  },
+  },
+  {
+    extend:    'pdfHtml5',
+    text:      'PDF',
+    titleAttr: 'Exportar a PDF',
+    className: 'btn btn-danger',
+    exportOptions: {
+      columns: [ 0, 1, 2, 3,4,5]
+  },
+  },
+],
   "columns":[
       {"data": "id"},
       {"data": "nombre"},

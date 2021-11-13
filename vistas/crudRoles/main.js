@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  alert("perrito")
   var id, opcion;
   opcion = 4;
   tablaMarcas = $("#tablaMarcas").DataTable({
@@ -9,6 +8,28 @@ $(document).ready(function () {
       "data":{opcion:opcion}, //enviamos opcion 4 para que haga un SELECT
       "dataSrc":""
   },
+  responsive: "true",
+  dom: 'Bfrtilp',       
+  buttons:[ 
+  {
+    extend:    'excelHtml5',
+    text:      'EXCEL',
+    titleAttr: 'Exportar a Excel',
+    className: 'btn btn-success',
+    exportOptions: {
+      columns: [ 0, 1]
+  },
+  },
+  {
+    extend:    'pdfHtml5',
+    text:      'PDF',
+    titleAttr: 'Exportar a PDF',
+    className: 'btn btn-danger',
+    exportOptions: {
+      columns: [ 0, 1]
+  },
+  },
+],
   "columns":[
       {"data": "id"},
       {"data": "descripcion"},

@@ -38,17 +38,18 @@ if ($_SESSION["s_usuario"] === null){
 <body>
 
 
-    <nav class="menum navbar navbar-light navbar-expand-md justify-content-center fixed-top">
+    <nav class="menum navbar navbar-light navbar-expand-md  fixed-top">
         <div class="container">
 
-            <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
+            <div class="navbar-collapse collapse justify-content-prepend  w-50"
                 id="collapsingNavbar2">
-                <ul class="topBotomBordersOut navbar-nav mx-auto text-center">
+                <ul class="topBotomBordersOut navbar-nav mx-auto text-left">
                     <li class="nav-item"><a class="nav-link font-weight-light" href="../crudUsuarios">USUARIOS</a></li>
                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudProductos">PRODUCTOS</a></li>
-                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudMarcas">MARCAS</a></li>
+                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudMarcas">CATEGORIAS</a></li>
                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudProveedores">PROVEEDORES</a></li>
                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudRoles">ROLES</a></li>
+                    <li class="nav-item"> <a class="nav-link font-weight-light" href="../crudVentas/indexventascarrito.php">VENTAS</a></li>
                     <li class="nav-item"> <a class="nav-link font-weight-light" href="../../bd/logica_logout.php">CERRAR SESION</a></li>
 
 

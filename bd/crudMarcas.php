@@ -38,7 +38,7 @@ switch($opcion){
         break;        
 
     case 4:    
-        $consulta = "SELECT * FROM marcas";
+        $consulta = "SELECT * FROM categorias";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);

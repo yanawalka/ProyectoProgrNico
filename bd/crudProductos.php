@@ -41,7 +41,7 @@ switch($opcion){
         break;        
 
     case 4:    
-        $consulta = "SELECT * FROM productos";
+        $consulta = "SELECT proid,procodigo,pronombre, canom, prostockactual, proprecio FROM productos INNER JOIN categorias ON productos.caid = categorias.caid";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
